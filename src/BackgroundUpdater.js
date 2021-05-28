@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from "axios";
 import styles from './BackgroundUpdater.module.css';
-import useBackgroundUpdater from './useBackgroundUpdater';
 
 function BackgroundUpdater(props) {
 
@@ -21,7 +20,7 @@ function BackgroundUpdater(props) {
 
             const url =
                 "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
-debugger;
+
             const dateString =
                 date.getFullYear() + "-" +
                 appendLeadingZeros((date.getMonth() + 1)) + "-" +
