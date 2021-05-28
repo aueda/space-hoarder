@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from "axios";
 import styles from './BackgroundUpdater.module.css';
+import useBackgroundUpdater from './useBackgroundUpdater';
 
 function BackgroundUpdater(props) {
 
@@ -12,14 +13,25 @@ function BackgroundUpdater(props) {
 
         function getImageOfTheDay(callback, date) {
 
+            function appendLeadingZeros(number) {
+                return number > 9
+                    ? number.toString()
+                    : "0" + number.toString();
+            }
+
             const url =
                 "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
+debugger;
+            const dateString =
+                date.getFullYear() + "-" +
+                appendLeadingZeros((date.getMonth() + 1)) + "-" +
+                appendLeadingZeros(date.getDay());
 
             const urlParam =
                 typeof date === 'undefined'
                     ? "&date=2021-04-25"
-                    : ""
-
+                    : "&date=" + dateString;
+            console.log(dateString);
             axios
                 .get(url + urlParam)
                 .then(response => {
@@ -46,7 +58,7 @@ function BackgroundUpdater(props) {
 
                     setImageUrl(newImageUrl);
                 }
-            });
+            }, new Date());
         } else {
 
             setImageUrl(imageUrl);

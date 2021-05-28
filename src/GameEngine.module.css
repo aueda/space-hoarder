@@ -1,0 +1,6 @@
+.gameEngine {
+    display: inline-block;
+    padding: 20px 20px;
+    background: rgba(255, 255, 255, 0.75);
+    margin-top: 20px;
+}
