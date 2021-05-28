@@ -1,7 +1,4 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import axios from "axios";
 import { Component } from 'react';
 import PlayField from './PlayField';
 import KeyboardInput from './KeyboardInput';
@@ -233,10 +230,10 @@ class GameEngine extends Component {
             this.playerPosition,
              1);
 
-        const candidateTargetPosition = this.calculatePlayerPosition(
-            direction,
-            cratePosition,
-            1);
+        // const candidateTargetPosition = this.calculatePlayerPosition(
+        //     direction,
+        //     cratePosition,
+        //     1);
 
         // this.decreateRemainingTargets(
         //      this.getPiece(candidateTargetPosition) === ".");
